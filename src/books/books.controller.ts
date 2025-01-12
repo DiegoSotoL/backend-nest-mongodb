@@ -16,4 +16,9 @@ export class BooksController {
   async findAll(): Promise<Book[]> {
     return this.booksService.findAll();
   }
+  
+  @Get('pages-average')
+  async getPagesAverage(): Promise<{ bookId: string; average: number }[]> {
+    return this.booksService.getPagesAverage();
+  }
 }

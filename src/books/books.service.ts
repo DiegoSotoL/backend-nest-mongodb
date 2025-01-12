@@ -28,4 +28,13 @@ export class BooksService {
   async findAll(): Promise<Book[]> {
     return this.bookModel.find().populate({ path: 'authors', select: 'name' }).exec();// Excluye "books"
   }
+  
+  async getPagesAverage(): Promise<{ bookId: string; average: number }[]> {
+    const books = await this.bookModel.find({}, '_id chapters pages').exec();
+    return books.map(book => ({
+      bookId: book._id.toString(), 
+      average: parseFloat((book.pages / book.chapters).toFixed(2)),
+    }));
+  }
+  
 }
