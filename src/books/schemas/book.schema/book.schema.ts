@@ -14,8 +14,9 @@ export class Book {
   @Prop({ required: true })
   pages: number;
 
-  @Prop({ type: [String], ref: 'Author' })
+  @Prop({ type: [{ type: String, ref: 'Author' }] }) // Relación con autores
   authors: string[];
+  
 }
 
 export const BookSchema = SchemaFactory.createForClass(Book);
