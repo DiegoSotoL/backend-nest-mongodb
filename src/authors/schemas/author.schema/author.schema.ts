@@ -5,12 +5,11 @@ export type AuthorDocument = HydratedDocument<Author>;
 
 @Schema()
 export class Author {
-    @Prop({ required: true })
-    name: string;
+  @Prop({ required: true })
+  name: string;
 
-    @Prop({ type: [{ type: String, ref: 'Book' }] }) // Relación con libros
-    books: string[];
-
+  @Prop({ type: [{ type: String, ref: 'Book' }] }) // Relación con libros
+  books: string[];
 }
 
 export const AuthorSchema = SchemaFactory.createForClass(Author);

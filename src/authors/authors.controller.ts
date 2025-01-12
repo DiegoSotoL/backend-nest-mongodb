@@ -15,7 +15,9 @@ export class AuthorsController {
   }
 
   @Get()
-  @ApiOperation({ summary: 'Listar todos los autores con sus libros asociados' })
+  @ApiOperation({
+    summary: 'Listar todos los autores con sus libros asociados',
+  })
   async findAll() {
     return this.authorsService.findAll();
   }

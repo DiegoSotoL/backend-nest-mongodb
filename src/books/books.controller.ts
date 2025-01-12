@@ -9,7 +9,7 @@ export class BooksController {
   constructor(private readonly booksService: BooksService) {}
 
   @Post()
-  @ApiOperation({ summary: 'Crear un nuevo libro' }) 
+  @ApiOperation({ summary: 'Crear un nuevo libro' })
   async create(@Body() createBookDto: CreateBookDto) {
     return this.booksService.create(createBookDto);
   }
